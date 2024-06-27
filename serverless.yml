@@ -1,0 +1,53 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: malloc
+service: employee-management
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: us-east-1
+
+functions:
+  createEmployee:
+    handler: src/infrastructure/framework/lambda/handler.create
+    events:
+      - http:
+          path: employees
+          method: post
+  getEmployee:
+    handler: src/infrastructure/framework/lambda/handler.get
+    events:
+      - http:
+          path: employees/{id}
+          method: get
+  updateEmployee:
+    handler: src/infrastructure/framework/lambda/handler.update
+    events:
+      - http:
+          path: employees
+          method: put
+  deleteEmployee:
+    handler: src/infrastructure/framework/lambda/handler.delete
+    events:
+      - http:
+          path: employees/{id}
+          method: delete
+
+plugins:
+  - serverless-offline
+
+resources:
+  Resources:
+    EmployeesTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: Employees
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
