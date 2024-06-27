@@ -238,6 +238,33 @@ module.exports.delete = async (event) => {
 };
 ```
 
+
+## Testing
+
+To run the unit tests, ensure you have Node.js and npm installed on your development environment. Before running the tests, make sure all project dependencies are installed. If not already installed, run the following command in the project root:
+
+`npm install`
+
+# Running Tests
+
+To execute the unit tests, use the following command:
+
+`npm test`
+
+This command runs the tests using Jest, a JavaScript testing framework. The tests are located in the tests/ folder and cover core use cases of the project.
+
+# Dependencies
+
+No additional dependencies are required beyond those listed in package.json for running the tests.
+
+# Explanation:
+
+- **npm install**: Installs all project dependencies, including Jest and other development dependencies listed in `package.json`.
+- **npm test**: Runs the unit tests using Jest. This command automatically searches for test files in the `tests/` folder and executes the defined tests.
+
+Feel free to adjust paths and details according to your actual project structure. These instructions provide a straightforward way for users to run unit tests without needing to delve into the specifics of each test case in the `README.md`.
+
+
 ## License
 
 Developed by [Matheus Ferraz da Silveira](https://github.com/mathferraz/).
