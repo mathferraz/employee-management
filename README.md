@@ -37,7 +37,7 @@ employee-management/
 
 1. Clone the repository:
 
-  `git clone https://github.com/mathferraz/serverless-challenge.git`
+  `git clone https://github.com/mathferraz/employee-management`
   `cd employee-management`
 
 2. Install dependencies if not already installed:
